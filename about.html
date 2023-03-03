@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
+    <script src="./jquery-3.3.1.min.js"></script>
+    <title>Peter's Project</title>
+    <script>
+        $(document).ready(function(){
+            $(".intro_img").hover(function(){
+                $(".intro_img img").removeClass('disBlock').addClass('disNone');
+                $(".intro_img iframe").removeClass('disNone').addClass('disBlock');
+            },function(){
+                $(".intro_img iframe").removeClass('disBlock').addClass('disNone');
+                $(".intro_img img").removeClass('disNone').addClass('disBlock');
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_title">
+            <img src="./logo.png" class="header_logo" alt="">
+            <H4 class="header_font"><a href="index.html">XXX便當</a></H4>
+        </div>
+        <div class="header_nav"></div>
+        <nav class="header_list">
+           <li class="list_item"><a class="item_link" href="./about.html">關於我們</a></li>
+           <li class="list_item"><a class="item_link" href="./product.html">產品介紹</a></li>
+           <li class="list_item"><a class="item_link" href="#">訂購便當</a></li>
+           <li class="list_item"><a class="item_link" href="./contact.html">聯絡我們</a></li>
+        </nav>
+    </div>
+    <div class="about_container">
+        <div class="intro_img" >
+            <img class="disBolck" src="./location.jpg" alt="">
+            <iframe  class="disNone" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14468.70444858986!2d121.1632508!3d24.9601221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468252344a5dcef%3A0xa9339364b68a371e!2z5aO55LyN5p-S5L6_55W2!5e0!3m2!1szh-TW!2stw!4v1677139246333!5m2!1szh-TW!2stw" width="600" height="850" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="intro_word">
+            <div style="height:50%;">
+                <img src="./logo.png" class="intro_logo" alt="">
+                <h1 class="intro_title">壹伍柒便當</h1>
+                <p>地址 : 桃園市新屋區民族路六段157號</p>
+                <p>創立於2022年，餐點主打新鮮、現做，有別於傳統便當店，讓顧客選擇更多樣更自由</p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

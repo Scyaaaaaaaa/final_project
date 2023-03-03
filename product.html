@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="./jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
+    <title>Peter's Project</title>
+    <script>
+        var product_name = ["雞腿便當 $100","炸排骨便當 $95","滷排骨便當 $95"," 鲭魚便當 $90"," 控肉便當 $85"
+                            ,"紅酒牛肉飯 $130","醬爆肉絲飯 $90","韓式雞肉飯 $95","醬淋肉片飯 $90","蔥燒魚片飯 $95"];
+        var product_ca = ["865 cal","904 cal","790 cal","688 cal","700 cal","600cal","589 cal","550 cal","450 cal","490 cal"];
+        var product_intro = ["我們需要淘汰舊有的觀念，雞腿便當似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。",
+        "回過神才發現，思考炸排骨便當的存在意義，已讓我廢寢忘食。",
+        "而這些並不是完全重要，只要有意義，那麼就必須慎重考慮。滷排骨便當絕對是史無前例的。",
+        "這是不可避免的。如果此時我們選擇忽略鲭魚便當，那後果可想而知。",
+        "控肉便當的出現，必將帶領人類走向更高的巔峰。",
+        "可是，即使是這樣，紅酒牛肉飯的出現仍然代表了一定的意義。",
+        " 醬爆肉絲飯對我來說，已經成為了我生活的一部分。",
+        "儘管韓式雞肉飯看似不顯眼，卻佔據了我的腦海。",
+        "若能夠洞悉醬淋肉片飯各種層面的含義，勢必能讓思維再提高一個層級。",
+        "而這些並不是完全重要，更加重要的問題是，蔥燒魚片飯的出現，重寫了人生的意義。"];
+
+        $(document).ready(function(){
+            $("#product_area").empty();
+            for(var i = 1 ; i<=10 ; i++){
+                $("#product_area").append
+                (
+                    "<div class='product' id='product"+i+"' data-title='"+product_name[i-1]+"'><img class='product_img' src='./lb"+i+".jpg' alt=''></div>"
+                );
+                $("#product"+i).on("click", { num: i }, fnChange);
+            }
+        })
+        function openModal() {
+            $("#myModal").addClass("displayBlock");
+            $(".modal-content").addClass("displayBlock");
+        }
+        function closeModal() {
+            $("#myModal").removeClass("displayBlock");
+        }
+        function fnChange(event) {
+            var img_num = './lb'+event.data.num+'.jpg';
+            var img_content = product_name[event.data.num-1] ;
+            var img_word = product_ca[event.data.num-1];
+            var img_intro = product_intro[event.data.num-1];
+            $("#show").attr("src", img_num);
+            $("#img_content").text(img_content );
+            $(".img_word").text(img_word);
+            $(".img_intro").text(img_intro);
+            openModal();
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_title">
+            <img src="./logo.png" class="header_logo" alt="">
+            <H4 class="header_font"><a href="./index.html">XXX便當</a></H4>
+        </div>
+        <div class="header_nav"></div>
+        <nav class="header_list">
+           <li class="list_item"><a class="item_link" href="./about.html">關於我們</a></li>
+           <li class="list_item"><a class="item_link" href="./product.html">產品介紹</a></li>
+           <li class="list_item"><a class="item_link" href="#">訂購便當</a></li>
+           <li class="list_item"><a class="item_link" href="./contact.html">聯絡我們</a></li>
+        </nav>
+    </div>
+    <div  class="product_area" id="product_area"></div>
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="show" src="./lb1.jpg">
+            <h1 id="img_content"></h1>
+            <p class="img_word"></p>
+            <p class="img_intro"></p>
+        </div>
+    </div>
+</body>
+</html>
